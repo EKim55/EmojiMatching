@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MatchingGame {
+class MatchingGame: CustomStringConvertible {
     
     enum CardState: String {
         case hidden = "Hidden"
@@ -16,14 +16,26 @@ class MatchingGame {
         case matched = "Matched"
     }
     
-    enum GameState: String {
-        case finished = "Game Won"
-        case ongoing = "Game not beaten"
+    enum GameState {
+        case first
+        case second(Int)
+        case turnComplete(Int, Int)
+        
+        func simpleDescription() -> String {
+            switch(self) {
+            case .first:
+                return "Waiting for first selection."
+            case .second(let firstIndex):
+                return "Waiting for second selection. First click = \(firstIndex)"
+            case .turnComplete(let firstIndex, let secondIndex):
+                return "Turn complete. First click = \(firstIndex)  Second click = \(secondIndex)"
+            }
+        }
     }
     
     var gameState : GameState
     
-    var numPairs: Int;
+    var numPairs: Int
     
     let allCardBacks = Array("🎆🎇🌈🌅🌇🌉🌃🌄⛺⛲🚢🌌🌋🗽")
     let allEmojiCharacters = Array("🚁🐴🐇🐢🐱🐌🐒🐞🐫🐠🐬🐩🐶🐰🐼⛄🌸⛅🐸🐳❄❤🐝🌺🌼🌽🍌🍎🍡🏡🌻🍉🍒🍦👠🐧👛🐛🐘🐨😃🐻🐹🐲🐊🐙")
@@ -31,11 +43,14 @@ class MatchingGame {
     var cardBack : Character
     var cards : [Character]
     var cardStates : [CardState]
+    var firstSelection : Character
+    var firstIndex : Int
+    var secondSelection : Character
+    var secondIndex : Int
     
     init(numPairs: Int) {
-        self.numPairs = numPairs;
-        
-        gameState = .ongoing
+        self.numPairs = numPairs
+        gameState = .first
         
         let index = Int(arc4random_uniform(UInt32(allCardBacks.count)))
         cardBack = allCardBacks[index]
@@ -52,27 +67,33 @@ class MatchingGame {
         cards.shuffle()
         
         cardStates = [CardState]()
-        for i in 0..<cards.count {
-            cardStates[i] = .hidden
+        for _ in 0..<cards.count {
+            cardStates.append(.hidden)
         }
+        
+        firstSelection = cards[0]
+        firstIndex = 0
+        
+        secondSelection = cards[0]
+        secondIndex = 0
     }
     
     func pressedCard(atIndex: Int) {
         switch(cardStates[atIndex]) {
         case .hidden:
-            for i in 0..<cards.count {
-                if (cardStates[i] == .revealed) {
-                    if (cards[i] == cards[atIndex]) {
-                        cardStates[i] = .matched
-                        cardStates[atIndex] = .matched
-                        checkForGameOver()
-                    }
-                    else {
-                        cardStates[i] = .hidden
-                        cardStates[atIndex] = .hidden
-                    }
-                    return
-                }
+            switch(gameState) {
+            case .first:
+                firstSelection = cards[atIndex]
+                firstIndex = atIndex
+                gameState = .second(firstIndex)
+                break
+            case .second:
+                secondSelection = cards[atIndex]
+                secondIndex = atIndex
+                gameState = .turnComplete(firstIndex, secondIndex)
+                break
+            case .turnComplete:
+                break
             }
             cardStates[atIndex] = .revealed
             return
@@ -83,16 +104,21 @@ class MatchingGame {
         }
     }
     
-    func checkForGameOver() {
-        for i in 0..<cards.count {
-            if (cardStates[i] != .matched) {
-                return
-            }
+    func startNewTurn() {
+        if (firstSelection == secondSelection) {
+            cardStates[firstIndex] = .matched
+            cardStates[secondIndex] = .matched
         }
-        gameState = .finished
-        return
+        else {
+            cardStates[firstIndex] = .hidden
+            cardStates[secondIndex] = .hidden
+        }
+        gameState = .first
     }
     
+    var description: String {
+        return "\(cards[0]) \(cards[1]) \(cards[2]) \(cards[3])\n\(cards[4]) \(cards[5]) \(cards[6]) \(cards[7])\n\(cards[8]) \(cards[9]) \(cards[10]) \(cards[11])\n\(cards[12]) \(cards[13]) \(cards[14]) \(cards[15])\n\(cards[16]) \(cards[17]) \(cards[18]) \(cards[19])\n"
+    }
 }
 
 extension Array {

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +14,473 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EmojiMatching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNk-hX-zhi">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YFw-j1-mZC"/>
+                                    <barButtonItem title="New Game" id="7Ad-Cx-LdJ">
+                                        <connections>
+                                            <action selector="pressedNewGame:" destination="BYZ-38-t0r" id="2yZ-75-OyI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eD9-cT-Qnb">
+                                <rect key="frame" x="104" y="172" width="560" height="700"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nRa-hI-rZu">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="700"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JBL-py-jfu">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="140"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imQ-rx-NGs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RGW-G3-TWx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="To7-I3-lcY">
+                                                        <rect key="frame" x="140" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i8P-3r-2En"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdo-dP-bGz">
+                                                        <rect key="frame" x="280" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BCg-uF-A16"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlh-YN-XPM">
+                                                        <rect key="frame" x="420" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dle-ev-IZm"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="M50-GH-mvv">
+                                                <rect key="frame" x="0.0" y="140" width="560" height="140"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wp4-Fp-prz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yBS-7e-NUH"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qx4-xj-JQ4">
+                                                        <rect key="frame" x="140" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l5T-Ys-MqH"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvP-KT-cG3">
+                                                        <rect key="frame" x="280" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FQe-lQ-z4P"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JI-Hz-M6l">
+                                                        <rect key="frame" x="420" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X0U-ip-qT5"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="31m-pG-8lg">
+                                                <rect key="frame" x="0.0" y="280" width="560" height="140"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4d-aC-KFu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ZC-yU-01J"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6g-sY-elJ">
+                                                        <rect key="frame" x="140" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QJh-j8-82J"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5F-Mh-o8A">
+                                                        <rect key="frame" x="280" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cxU-Mb-Klr"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aS7-Rm-RCL">
+                                                        <rect key="frame" x="420" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5kd-e4-uR6"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Bbt-Vx-n8J">
+                                                <rect key="frame" x="0.0" y="420" width="560" height="140"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v49-f1-HGO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bel-S8-vxh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axa-vr-9I0">
+                                                        <rect key="frame" x="140" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VcS-MY-AiE"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFs-bf-NAt">
+                                                        <rect key="frame" x="280" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DUV-QC-xBQ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHt-o7-mAA">
+                                                        <rect key="frame" x="420" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tYw-SY-DKT"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qzJ-1V-4OW">
+                                                <rect key="frame" x="0.0" y="560" width="560" height="140"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLT-Ob-hP4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qjb-sV-j6y"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDT-Jo-HS3">
+                                                        <rect key="frame" x="140" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xUR-5O-PMw"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFL-Zn-wNu">
+                                                        <rect key="frame" x="280" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XEJ-Gz-nrK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWh-r2-WQI">
+                                                        <rect key="frame" x="420" y="0.0" width="140" height="140"/>
+                                                        <state key="normal" title="🎇"/>
+                                                        <variation key="widthClass=compact">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="pressedEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QJ8-Nb-6Dr"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <variation key="widthClass=regular" axis="vertical"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nRa-hI-rZu" secondAttribute="trailing" id="Alo-rY-hWS"/>
+                                    <constraint firstItem="nRa-hI-rZu" firstAttribute="top" secondItem="eD9-cT-Qnb" secondAttribute="top" id="Eql-r3-Cer"/>
+                                    <constraint firstAttribute="width" constant="560" id="L64-u0-Gp7"/>
+                                    <constraint firstAttribute="width" secondItem="eD9-cT-Qnb" secondAttribute="height" multiplier="4:5" id="LvC-SX-1Gq"/>
+                                    <constraint firstAttribute="bottom" secondItem="nRa-hI-rZu" secondAttribute="bottom" id="QEb-JC-OB1"/>
+                                    <constraint firstAttribute="trailing" secondItem="nRa-hI-rZu" secondAttribute="trailing" id="Qmo-1H-ap7"/>
+                                    <constraint firstItem="nRa-hI-rZu" firstAttribute="top" secondItem="eD9-cT-Qnb" secondAttribute="top" id="ci1-7m-I9t"/>
+                                    <constraint firstItem="nRa-hI-rZu" firstAttribute="leading" secondItem="eD9-cT-Qnb" secondAttribute="leading" id="eF1-Ds-r2R"/>
+                                    <constraint firstAttribute="bottom" secondItem="nRa-hI-rZu" secondAttribute="bottom" id="oxj-4s-AY4"/>
+                                    <constraint firstAttribute="height" constant="700" id="qO8-Rj-Vrw"/>
+                                    <constraint firstItem="nRa-hI-rZu" firstAttribute="leading" secondItem="eD9-cT-Qnb" secondAttribute="leading" id="ykq-gV-VRn"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="L64-u0-Gp7"/>
+                                        <exclude reference="LvC-SX-1Gq"/>
+                                        <exclude reference="qO8-Rj-Vrw"/>
+                                        <exclude reference="Alo-rY-hWS"/>
+                                        <exclude reference="Eql-r3-Cer"/>
+                                        <exclude reference="QEb-JC-OB1"/>
+                                        <exclude reference="Qmo-1H-ap7"/>
+                                        <exclude reference="ci1-7m-I9t"/>
+                                        <exclude reference="eF1-Ds-r2R"/>
+                                        <exclude reference="oxj-4s-AY4"/>
+                                        <exclude reference="ykq-gV-VRn"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="LvC-SX-1Gq"/>
+                                        <include reference="Alo-rY-hWS"/>
+                                        <include reference="Eql-r3-Cer"/>
+                                        <include reference="QEb-JC-OB1"/>
+                                        <include reference="ykq-gV-VRn"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="L64-u0-Gp7"/>
+                                        <include reference="qO8-Rj-Vrw"/>
+                                        <include reference="Qmo-1H-ap7"/>
+                                        <include reference="ci1-7m-I9t"/>
+                                        <include reference="eF1-Ds-r2R"/>
+                                        <include reference="oxj-4s-AY4"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNe-XG-EtW">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="C09-qg-3zy"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="XYi-X5-bNv">
+                                        <barButtonItem key="leftBarButtonItem" title="New Game" id="KCa-cI-xZx">
+                                            <connections>
+                                                <action selector="pressedNewGame:" destination="BYZ-38-t0r" id="LF1-96-lkU"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="C09-qg-3zy"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="C09-qg-3zy"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sNe-XG-EtW" secondAttribute="trailing" id="1S8-nk-56z"/>
+                            <constraint firstItem="sNe-XG-EtW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7gw-zv-rfa"/>
+                            <constraint firstItem="eD9-cT-Qnb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Byq-gy-Dmg"/>
+                            <constraint firstItem="eD9-cT-Qnb" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="EQC-MX-XMV"/>
+                            <constraint firstItem="QNk-hX-zhi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="HN4-Ar-zlf"/>
+                            <constraint firstItem="QNk-hX-zhi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LkQ-kj-Obp"/>
+                            <constraint firstAttribute="trailing" secondItem="eD9-cT-Qnb" secondAttribute="trailing" constant="20" id="VXS-ro-Efr"/>
+                            <constraint firstItem="eD9-cT-Qnb" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Yno-IX-gTe"/>
+                            <constraint firstItem="sNe-XG-EtW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="joo-wm-sPN"/>
+                            <constraint firstItem="eD9-cT-Qnb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kOQ-x7-COM"/>
+                            <constraint firstItem="QNk-hX-zhi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n38-Kk-hqb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="QNk-hX-zhi"/>
+                                <exclude reference="sNe-XG-EtW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="7gw-zv-rfa"/>
+                                <exclude reference="joo-wm-sPN"/>
+                                <exclude reference="1S8-nk-56z"/>
+                                <exclude reference="Byq-gy-Dmg"/>
+                                <exclude reference="EQC-MX-XMV"/>
+                                <exclude reference="VXS-ro-Efr"/>
+                                <exclude reference="Yno-IX-gTe"/>
+                                <exclude reference="kOQ-x7-COM"/>
+                                <exclude reference="HN4-Ar-zlf"/>
+                                <exclude reference="LkQ-kj-Obp"/>
+                                <exclude reference="n38-Kk-hqb"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="QNk-hX-zhi"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="VXS-ro-Efr"/>
+                                <include reference="Yno-IX-gTe"/>
+                                <include reference="kOQ-x7-COM"/>
+                                <include reference="HN4-Ar-zlf"/>
+                                <include reference="LkQ-kj-Obp"/>
+                                <include reference="n38-Kk-hqb"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="sNe-XG-EtW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="7gw-zv-rfa"/>
+                                <include reference="joo-wm-sPN"/>
+                                <include reference="1S8-nk-56z"/>
+                                <include reference="Byq-gy-Dmg"/>
+                                <include reference="EQC-MX-XMV"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outletCollection property="emojiButtons" destination="imQ-rx-NGs" collectionClass="NSMutableArray" id="x9R-Xw-oWG"/>
+                        <outletCollection property="emojiButtons" destination="To7-I3-lcY" collectionClass="NSMutableArray" id="r5i-Qi-est"/>
+                        <outletCollection property="emojiButtons" destination="gdo-dP-bGz" collectionClass="NSMutableArray" id="1Qc-GL-7RI"/>
+                        <outletCollection property="emojiButtons" destination="rlh-YN-XPM" collectionClass="NSMutableArray" id="vbt-8j-hOr"/>
+                        <outletCollection property="emojiButtons" destination="wp4-Fp-prz" collectionClass="NSMutableArray" id="UjG-FX-A0m"/>
+                        <outletCollection property="emojiButtons" destination="Qx4-xj-JQ4" collectionClass="NSMutableArray" id="Bfm-mw-wtd"/>
+                        <outletCollection property="emojiButtons" destination="TvP-KT-cG3" collectionClass="NSMutableArray" id="9ed-l3-kti"/>
+                        <outletCollection property="emojiButtons" destination="4JI-Hz-M6l" collectionClass="NSMutableArray" id="TkO-tT-1cM"/>
+                        <outletCollection property="emojiButtons" destination="Q4d-aC-KFu" collectionClass="NSMutableArray" id="uHO-7T-VDc"/>
+                        <outletCollection property="emojiButtons" destination="a6g-sY-elJ" collectionClass="NSMutableArray" id="bJu-lw-PPr"/>
+                        <outletCollection property="emojiButtons" destination="Y5F-Mh-o8A" collectionClass="NSMutableArray" id="9fo-D1-0IE"/>
+                        <outletCollection property="emojiButtons" destination="aS7-Rm-RCL" collectionClass="NSMutableArray" id="1RV-hM-Ce0"/>
+                        <outletCollection property="emojiButtons" destination="v49-f1-HGO" collectionClass="NSMutableArray" id="2n1-sP-3yM"/>
+                        <outletCollection property="emojiButtons" destination="Axa-vr-9I0" collectionClass="NSMutableArray" id="h0U-YE-29s"/>
+                        <outletCollection property="emojiButtons" destination="aFs-bf-NAt" collectionClass="NSMutableArray" id="auZ-MR-b6V"/>
+                        <outletCollection property="emojiButtons" destination="zHt-o7-mAA" collectionClass="NSMutableArray" id="gT4-h5-Fdn"/>
+                        <outletCollection property="emojiButtons" destination="LLT-Ob-hP4" collectionClass="NSMutableArray" id="Saa-gN-WKg"/>
+                        <outletCollection property="emojiButtons" destination="bDT-Jo-HS3" collectionClass="NSMutableArray" id="JPe-Wh-VRx"/>
+                        <outletCollection property="emojiButtons" destination="aFL-Zn-wNu" collectionClass="NSMutableArray" id="7eZ-aZ-upy"/>
+                        <outletCollection property="emojiButtons" destination="UWh-r2-WQI" collectionClass="NSMutableArray" id="NL0-1v-eAI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
