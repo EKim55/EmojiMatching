@@ -422,15 +422,15 @@
                             <mask key="constraints">
                                 <exclude reference="7gw-zv-rfa"/>
                                 <exclude reference="joo-wm-sPN"/>
+                                <exclude reference="HN4-Ar-zlf"/>
+                                <exclude reference="LkQ-kj-Obp"/>
+                                <exclude reference="n38-Kk-hqb"/>
                                 <exclude reference="1S8-nk-56z"/>
                                 <exclude reference="Byq-gy-Dmg"/>
                                 <exclude reference="EQC-MX-XMV"/>
                                 <exclude reference="VXS-ro-Efr"/>
                                 <exclude reference="Yno-IX-gTe"/>
                                 <exclude reference="kOQ-x7-COM"/>
-                                <exclude reference="HN4-Ar-zlf"/>
-                                <exclude reference="LkQ-kj-Obp"/>
-                                <exclude reference="n38-Kk-hqb"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -438,12 +438,12 @@
                                 <include reference="QNk-hX-zhi"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="VXS-ro-Efr"/>
-                                <include reference="Yno-IX-gTe"/>
-                                <include reference="kOQ-x7-COM"/>
                                 <include reference="HN4-Ar-zlf"/>
                                 <include reference="LkQ-kj-Obp"/>
                                 <include reference="n38-Kk-hqb"/>
+                                <include reference="VXS-ro-Efr"/>
+                                <include reference="Yno-IX-gTe"/>
+                                <include reference="kOQ-x7-COM"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">

@@ -17,10 +17,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in 0..<game.cards.count {
-            emojiButtons[i].setTitle("\(game.cardBack)", for: .normal)
+        for i in 0..<game!.cards.count {
+            emojiButtons[i].setTitle(game!.cardBack, for: .normal)
         }
-        print("\(game.description)")
+        print("\(game!.description)")
         updateEmojis()
     }
 
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
             return
         }
         let emojiButton = sender as! UIButton
-        game.pressedCard(atIndex: emojiButton.tag)
+        game!.pressedCard(emojiButton.tag)
         updateEmojis()
     }
     
@@ -38,37 +38,37 @@ class ViewController: UIViewController {
             return
         }
         game = MatchingGame(numPairs: 10)
-        print("\(game.description)")
+        print("\(game!.description)")
         updateEmojis()
     }
     
     func updateEmojis() {
-        let firstIndex = game.firstIndex
-        let firstSelection = game.firstSelection
-        let secondIndex = game.secondIndex
-        let secondSelection = game.secondSelection
-        switch (game.gameState) {
+        let firstIndex = game!.firstIndex
+        let firstSelection = game!.firstSelection
+        let secondIndex = game!.secondIndex
+        let secondSelection = game!.secondSelection
+        switch (game!.gameState) {
         case .first:
-            for i in 0..<game.cards.count {
-                if (game.cardStates[i] == .hidden) {
-                    emojiButtons[i].setTitle("\(game.cardBack)", for: .normal)
+            for i in 0..<game!.cards.count {
+                if (game!.getCardState(at: i) == .hidden) {
+                    emojiButtons[i].setTitle(game!.cardBack, for: .normal)
                 }
             }
             return
-        case .second(_):
-            emojiButtons[firstIndex].setTitle("\(firstSelection)", for: .normal)
-        case .turnComplete(_,_):
-            game.startNewTurn()
-            emojiButtons[secondIndex].setTitle("\(secondSelection)", for: .normal)
+        case .second:
+            emojiButtons[firstIndex].setTitle("\(firstSelection!)", for: .normal)
+        case .turnComplete:
+            game!.startNewTurn()
+            emojiButtons[secondIndex].setTitle("\(secondSelection!)", for: .normal)
             blockUI = true
             delay(1.2) {
-                if (self.game.cardStates[firstIndex] == .matched) {
+                if (self.game!.getCardState(at: firstIndex) == .matched) {
                     self.emojiButtons[firstIndex].setTitle("", for: .normal)
                     self.emojiButtons[secondIndex].setTitle("", for: .normal)
                 }
                 else {
-                    self.emojiButtons[firstIndex].setTitle("\(self.game.cardBack)", for: .normal)
-                    self.emojiButtons[secondIndex].setTitle("\(self.game.cardBack)", for: .normal)
+                    self.emojiButtons[firstIndex].setTitle("\(self.game!.cardBack)", for: .normal)
+                    self.emojiButtons[secondIndex].setTitle("\(self.game!.cardBack)", for: .normal)
                 }
                 self.blockUI = false
             }
